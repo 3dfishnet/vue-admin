@@ -51,121 +51,206 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/communityManage',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/communityManage/persons',
+    name: 'CommunityManage',
+    meta: { title: '小区管理', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
+        path: 'persons',
+        name: 'Persons',
+        component: () => import('@/views/communityPerson'),
+        meta: { title: '小区人员', icon: 'table' }
+      },
+      {
+        path: 'parkingAreas',
+        name: 'ParkingAreas',
+        component: () => import('@/views/table'),
+        meta: { title: '停车场', icon: 'table' }
+      },
+      {
+        path: 'parkingLots',
+        name: 'ParkingLots',
+        component: () => import('@/views/table'),
+        meta: { title: '停车位', icon: 'table' }
+      },
+      {
+        path: 'cars',
+        name: 'Cars',
+        component: () => import('@/views/cars'),
+        meta: { title: '小区车辆', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/accessManage',
+    component: Layout,
+    redirect: '/accessManage/devices',
+    name: 'AccessManage',
+    meta: { title: '门禁管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'devices',
+        name: 'AccessDevices',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '门禁设备', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'face',
+        name: 'AccessFace',
+        component: () => import('@/views/table/index'),
+        meta: { title: '门禁人脸', icon: 'table' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        path: 'records',
+        name: 'OpenDoorRecords',
+        component: () => import('@/views/table/index'),
+        meta: { title: '开门记录', icon: 'table' }
+      },
+      {
+        path: 'logs',
+        name: 'AccessLogs',
+        component: () => import('@/views/table/index'),
+        meta: { title: '操作日志', icon: 'table' }
       }
     ]
   },
 
   {
-    path: 'external-link',
+    path: '/barrierGateManage',
     component: Layout,
+    redirect: '/barrierGateManage/devices',
+    name: 'barrierGateManage',
+    meta: { title: '道闸管理', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'devices',
+        name: 'BarrierGateDevices',
+        component: () => import('@/views/barrierGate'),
+        meta: { title: '道闸设备', icon: 'table' }
+      },
+      {
+        path: 'controllCenter',
+        name: 'BarrierGateControlCenter',
+        component: () => import('@/views/table/index'),
+        meta: { title: '控制中心', icon: 'table' }
+      },
+      {
+        path: 'carIn',
+        name: 'CarIn',
+        component: () => import('@/views/table/index'),
+        meta: { title: '车辆进场', icon: 'table' }
+      },
+      {
+        path: 'carOut',
+        name: 'CarOut',
+        component: () => import('@/views/table/index'),
+        meta: { title: '车辆出场', icon: 'table' }
+      },
+      {
+        path: 'protocols',
+        name: 'BarrierGateProtocols',
+        component: () => import('@/views/table/index'),
+        meta: { title: '道闸协议', icon: 'table' }
       }
     ]
   },
+
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'Form',
+  //       component: () => import('@/views/form/index'),
+  //       meta: { title: 'Form', icon: 'form' }
+  //     }
+  //   ]
+  // }
+
+  // {
+  //   path: '/nested',
+  //   component: Layout,
+  //   redirect: '/nested/menu1',
+  //   name: 'Nested',
+  //   meta: {
+  //     title: 'Nested',
+  //     icon: 'nested'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'menu1',
+  //       component: () => import('@/views/nested/menu1/index'), // Parent router-view
+  //       name: 'Menu1',
+  //       meta: { title: 'Menu1' },
+  //       children: [
+  //         {
+  //           path: 'menu1-1',
+  //           component: () => import('@/views/nested/menu1/menu1-1'),
+  //           name: 'Menu1-1',
+  //           meta: { title: 'Menu1-1' }
+  //         },
+  //         {
+  //           path: 'menu1-2',
+  //           component: () => import('@/views/nested/menu1/menu1-2'),
+  //           name: 'Menu1-2',
+  //           meta: { title: 'Menu1-2' },
+  //           children: [
+  //             {
+  //               path: 'menu1-2-1',
+  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+  //               name: 'Menu1-2-1',
+  //               meta: { title: 'Menu1-2-1' }
+  //             },
+  //             {
+  //               path: 'menu1-2-2',
+  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+  //               name: 'Menu1-2-2',
+  //               meta: { title: 'Menu1-2-2' }
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           path: 'menu1-3',
+  //           component: () => import('@/views/nested/menu1/menu1-3'),
+  //           name: 'Menu1-3',
+  //           meta: { title: 'Menu1-3' }
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'menu2',
+  //       component: () => import('@/views/nested/menu2/index'),
+  //       name: 'Menu2',
+  //       meta: { title: 'menu2' }
+  //     }
+  //   ]
+  // },
+
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+  //       meta: { title: 'External Link', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
