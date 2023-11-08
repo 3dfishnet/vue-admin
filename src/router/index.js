@@ -98,7 +98,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'device',
-        name: 'Device',
+        name: 'accessDevice',
         component: () => import('@/views/404'),
         meta: { title: '门禁设备', icon: 'table' }
       },
@@ -132,7 +132,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'device',
-        name: 'Device',
+        name: 'barrierDevice',
         component: () => import('@/views/barrier/device'),
         meta: { title: '道闸设备', icon: 'table' }
       },

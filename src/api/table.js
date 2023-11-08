@@ -1,25 +1,5 @@
 import request from '@/utils/request'
 
-export function getList(params) {
-  return request({
-    url: '/iot/table/list',
-    method: 'get',
-    params
-  })
-}
-
-// 不加参数调用时params为空对象{}
-export function getCommunityPersonList(params) {
-  console.log('===============base===============')
-  console.log(process.env.VUE_APP_BASE_API)
-  console.log('===============base===============')
-  return request({
-    url: '/iot/communityManage/list',
-    method: 'get',
-    params
-  })
-}
-
 export function testGet(params) {
   console.log('===============test===============')
   console.log(process.env.VUE_APP_BASE_API)

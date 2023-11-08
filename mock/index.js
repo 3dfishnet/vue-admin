@@ -1,9 +1,9 @@
 const user = require('./user')
-const table = require('./table')
+const community = require('./community')
 
 const mocks = [
   ...user,
-  ...table
+  ...community
 ]
 
 module.exports = {
