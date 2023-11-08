@@ -2,17 +2,6 @@ const Mock = require('mockjs')
 
 const data = Mock.mock({
   'items|30': [{
-    id: '@id',
-    title: '@sentence(10, 20)',
-    'status|1': ['published', 'draft', 'deleted'],
-    author: 'name',
-    display_time: '@datetime',
-    pageviews: '@integer(300, 5000)'
-  }]
-})
-
-const data2 = Mock.mock({
-  'items|30': [{
     face: '@image("80x100")', // 随机生成200x100的图片URL
     name: '@cname', // 随机生成中文名字
     'tel|11': '@integer(0, 9)', // 随机生成11位电话号码
@@ -38,7 +27,7 @@ module.exports = [
     }
   },
   {
-    url: '/iot/barrierGate/list',
+    url: '/iot/barrier/list',
     type: 'get',
     response: config => {
       const items = data.items
@@ -46,7 +35,7 @@ module.exports = [
         code: 20000,
         data: {
           total: items.length,
-          items: items
+          items: null
         }
       }
     }
@@ -55,7 +44,7 @@ module.exports = [
     url: '/iot/communityManage/list',
     type: 'get',
     response: config => {
-      const allItems = data2.items
+      const allItems = data.items
       const query = config.query
       console.log('===========================query=================================')
       // console.log(config)

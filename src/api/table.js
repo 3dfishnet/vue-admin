@@ -8,16 +8,6 @@ export function getList(params) {
   })
 }
 
-export function getBarrierGateDeviceList(params) {
-  return request({
-    url: '/iot/barrierGate/list',
-    method: 'get',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    params
-  })
-}
 // 不加参数调用时params为空对象{}
 export function getCommunityPersonList(params) {
   console.log('===============base===============')
@@ -37,7 +27,6 @@ export function testGet(params) {
   return request({
     url: '/getTest2',
     method: 'get',
-    params,
-    baseURL: 'http://localhost:8080'
+    params
   })
 }

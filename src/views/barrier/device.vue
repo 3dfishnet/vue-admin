@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getBarrierGateDeviceList } from '@/api/table'
+import { getBarrierDeviceList } from '@/api/barrier'
 
 export default {
   filters: {
@@ -51,7 +51,7 @@ export default {
   methods: {
     fetchData() {
       this.listLoading = true
-      getBarrierGateDeviceList().then(response => {
+      getBarrierDeviceList().then(response => {
         this.list = response.data.items
         this.listLoading = false
       })

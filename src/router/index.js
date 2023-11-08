@@ -56,108 +56,108 @@ export const constantRoutes = [
   },
 
   {
-    path: '/communityManage',
+    path: '/community',
     component: Layout,
-    redirect: '/communityManage/persons',
-    name: 'CommunityManage',
+    redirect: '/community/person',
+    name: 'Community',
     meta: { title: '小区管理', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'persons',
-        name: 'Persons',
-        component: () => import('@/views/communityPerson'),
+        path: 'person',
+        name: 'Person',
+        component: () => import('@/views/community/person'),
         meta: { title: '小区人员', icon: 'table' }
       },
       {
-        path: 'parkingAreas',
-        name: 'ParkingAreas',
-        component: () => import('@/views/table'),
+        path: 'parkingArea',
+        name: 'ParkingArea',
+        component: () => import('@/views/404'),
         meta: { title: '停车场', icon: 'table' }
       },
       {
-        path: 'parkingLots',
-        name: 'ParkingLots',
-        component: () => import('@/views/table'),
+        path: 'parkingLot',
+        name: 'ParkingLot',
+        component: () => import('@/views/404'),
         meta: { title: '停车位', icon: 'table' }
       },
       {
-        path: 'cars',
-        name: 'Cars',
-        component: () => import('@/views/cars'),
+        path: 'car',
+        name: 'Car',
+        component: () => import('@/views/404'),
         meta: { title: '小区车辆', icon: 'table' }
       }
     ]
   },
 
   {
-    path: '/accessManage',
+    path: '/access',
     component: Layout,
-    redirect: '/accessManage/devices',
-    name: 'AccessManage',
+    redirect: '/access/device',
+    name: 'Access',
     meta: { title: '门禁管理', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'devices',
-        name: 'AccessDevices',
-        component: () => import('@/views/table/index'),
+        path: 'device',
+        name: 'Device',
+        component: () => import('@/views/404'),
         meta: { title: '门禁设备', icon: 'table' }
       },
       {
         path: 'face',
-        name: 'AccessFace',
-        component: () => import('@/views/table/index'),
+        name: 'Face',
+        component: () => import('@/views/404'),
         meta: { title: '门禁人脸', icon: 'table' }
       },
       {
-        path: 'records',
-        name: 'OpenDoorRecords',
-        component: () => import('@/views/table/index'),
+        path: 'record',
+        name: 'Record',
+        component: () => import('@/views/404'),
         meta: { title: '开门记录', icon: 'table' }
       },
       {
-        path: 'logs',
-        name: 'AccessLogs',
-        component: () => import('@/views/table/index'),
+        path: 'log',
+        name: 'Log',
+        component: () => import('@/views/404'),
         meta: { title: '操作日志', icon: 'table' }
       }
     ]
   },
 
   {
-    path: '/barrierGateManage',
+    path: '/barrier',
     component: Layout,
-    redirect: '/barrierGateManage/devices',
-    name: 'barrierGateManage',
+    redirect: '/barrier/device',
+    name: 'barrier',
     meta: { title: '道闸管理', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'devices',
-        name: 'BarrierGateDevices',
-        component: () => import('@/views/barrierGate'),
+        path: 'device',
+        name: 'Device',
+        component: () => import('@/views/barrier/device'),
         meta: { title: '道闸设备', icon: 'table' }
       },
       {
-        path: 'controllCenter',
-        name: 'BarrierGateControlCenter',
-        component: () => import('@/views/table/index'),
+        path: 'control',
+        name: 'Control',
+        component: () => import('@/views/404'),
         meta: { title: '控制中心', icon: 'table' }
       },
       {
         path: 'carIn',
         name: 'CarIn',
-        component: () => import('@/views/table/index'),
+        component: () => import('@/views/404'),
         meta: { title: '车辆进场', icon: 'table' }
       },
       {
         path: 'carOut',
         name: 'CarOut',
-        component: () => import('@/views/table/index'),
+        component: () => import('@/views/404'),
         meta: { title: '车辆出场', icon: 'table' }
       },
       {
-        path: 'protocols',
-        name: 'BarrierGateProtocols',
-        component: () => import('@/views/table/index'),
+        path: 'protocol',
+        name: 'Protocol',
+        component: () => import('@/views/404'),
         meta: { title: '道闸协议', icon: 'table' }
       }
     ]
