@@ -1,6 +1,10 @@
 <template>
-  <div class="app-container">
-    <el-input v-model="query.personName" placeholder="人员名称" style="width: 200px; margin: 5px;" />
+  <div>
+    <el-input
+      v-model="query.personName"
+      placeholder="人员名称"
+      style="width: 200px; margin: 10px;"
+    />
     <el-select v-model="query.personType" placeholder="人员类型">
       <el-option
         label=""
@@ -19,19 +23,16 @@
         value="3"
       />
     </el-select>
-
     <el-button
       type="primary"
       icon="el-icon-search"
       @click="queryCommunityPerson()"
     >查询人员</el-button>
-
     <el-button
       type="primary"
       icon="el-icon-search"
       @click="addCommunityPerson()"
     >添加人员</el-button>
-
     <el-dialog :title="dialogFormTitle" :visible.sync="dialogFormVisible">
       <el-form
         ref="dataForm"
@@ -138,7 +139,7 @@ export default {
         personCreateTime: ''
       },
       target: null,
-      listLoading: true,
+      listLoading: false,
       dialogFormVisible: false,
       dialogFormTitle: ''
     }
@@ -154,9 +155,9 @@ export default {
         this.listLoading = false
       })
     },
-    deleteCommunityPerson(params) {
+    deleteCommunityPerson(data) {
       this.listLoading = true
-      deleteCommunityPerson(params).then(response => {
+      deleteCommunityPerson(data).then(response => {
         this.listLoading = false
         this.queryCommunityPerson()
       })
@@ -166,10 +167,10 @@ export default {
       this.target = { ...this.temp }
       this.dialogFormVisible = true
     },
-    modifyCommunityPerson(params) {
+    modifyCommunityPerson(data) {
       this.dialogFormTitle = '修改人员'
-      this.temp = { ...params }
-      this.target = { ...params }
+      this.temp = { ...data }
+      this.target = { ...data }
       this.dialogFormVisible = true
     },
     saveCommunityPerson() {

@@ -52,7 +52,37 @@ module.exports = [
     response: config => {
       data.items.push({ ...config.body })
       return {
-        code: 20000
+        code: 20000,
+        data
+      }
+    }
+  },
+  {
+    url: '/iot/community/persons',
+    type: 'delete',
+    response: config => {
+      const allItems = data.items
+      const query = config.body
+      data.items = allItems.filter((item) => {
+        return item.personID !== query.personID
+      })
+      return {
+        code: 20000,
+        data: {
+          total: data.items.length,
+          items: data.items
+        }
+      }
+    }
+  },
+  {
+    url: '/iot/community/parkingLots',
+    type: 'get',
+    response: config => {
+      const data = [{ parkingLotID: '123', parkingLotCreateTime: '114514' }]
+      return {
+        code: 20000,
+        data
       }
     }
   }
