@@ -55,7 +55,7 @@
             type="danger"
             icon="el-icon-delete"
             size="small"
-            @click="delete(scope.row)"
+            @click="deleteParkingSpace(scope.row)"
           >删除</el-button>
         </template>
       </el-table-column>

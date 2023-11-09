@@ -73,6 +73,7 @@
 
 <script>
 import { getDevices, carIn, carOut } from '@/api/barrier'
+import { Message } from 'element-ui'
 export default {
   data() {
     return {
@@ -116,10 +117,14 @@ export default {
       })
     },
     carIn() {
-      carIn(this.carInInfo)
+      carIn(this.carInInfo).then((response) => {
+        Message(response.data)
+      })
     },
     carOut() {
-      carOut(this.carOutInfo)
+      carOut(this.carOutInfo).then((response) => {
+        Message(response.data)
+      })
     }
   }
 }

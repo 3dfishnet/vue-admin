@@ -61,6 +61,9 @@
             <el-option key="3" label="访客" value="3" />
           </el-select>
         </el-form-item>
+        <el-form-item label="人脸">
+          <el-input v-model="temp.personFace" placeholder="请输入人脸" />
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取消</el-button>
@@ -151,7 +154,7 @@ export default {
     queryCommunityPerson() {
       this.listLoading = true
       getCommunityPersons(this.query).then(response => {
-        this.list = response.data.items
+        this.list = response.data
         this.listLoading = false
       })
     },
@@ -164,7 +167,7 @@ export default {
     },
     addCommunityPerson() {
       this.dialogFormTitle = '添加人员'
-      this.target = { ...this.temp }
+      this.clearObj(this.temp)
       this.dialogFormVisible = true
     },
     modifyCommunityPerson(data) {
@@ -212,6 +215,11 @@ export default {
       }
       // 如果上面的条件都没有匹配，那么这两个对象是深度相等的
       return true
+    },
+    clearObj(obj) {
+      for (const key in obj) {
+        obj[key] = ''
+      }
     }
   }
 }

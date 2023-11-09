@@ -101,23 +101,23 @@ export default {
       this.listLoading = true
       getDevices(this.query).then(response => {
         this.list = response.data
-        // this.listLoading = false
+        this.listLoading = false
       })
-      this.listLoading = false
     },
     addDevice() {
       if (!this.checkAddForm(this.temp)) {
         Message({ type: 'error', message: '必须全部填写' })
         return
       }
-      addDevice(this.temp).then(() => {
+      addDevice(this.temp).then((response) => {
         this.queryDevice()
-        // this.dialogFormVisible = false
+        Message(response.data)
+        this.dialogFormVisible = false
       })
-      this.dialogFormVisible = false
     },
     deleteDevice(data) {
-      deleteDevice(data).then(() => {
+      deleteDevice(data).then((response) => {
+        Message({ message: response.data })
         this.queryDevice()
       })
     },

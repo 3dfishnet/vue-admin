@@ -61,6 +61,7 @@ export default {
     },
     addParkingLot() {
       addParkingLot(this.query).then(() => {
+        this.query.parkingLotID = ''
         this.queryParkingLot()
       })
     },

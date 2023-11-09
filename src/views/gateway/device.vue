@@ -11,7 +11,7 @@
         :model="temp"
         label-position="left"
         label-width="100px"
-        style="width: 400px; margin-left: 50px"
+        style="max-width: 400px; margin-left: 50px"
       >
 
         <el-form-item label="MAC">
@@ -30,13 +30,7 @@
           <el-input v-model="temp.gatewayEquipmentName" placeholder="请输入门禁名称" />
         </el-form-item>
         <el-form-item label="OEM">
-          <el-input v-model="temp.gatewayEquipmentProtocol" placeholder="请输入门禁厂家" />
-        </el-form-item>
-        <el-form-item label="门禁方向">
-          <el-select v-model="temp.gatewayEquipmentDirection" placeholder="请选择门禁方向">
-            <el-option label="进场" value="进" />
-            <el-option label="出场" value="出" />
-          </el-select>
+          <el-input v-model="temp.gatewayEquipmentBrand" placeholder="请输入门禁厂家" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -51,7 +45,7 @@
       <el-table-column prop="gatewayEquipmentIP" label="门禁IP" />
       <el-table-column prop="gatewayEquipmentIPVersion" label="IP版本号" />
       <el-table-column prop="gatewayEquipmentMacAddress" label="MAC地址" />
-      <el-table-column prop="gatewayEquipmentProtocol" label="厂商" />
+      <el-table-column prop="gatewayEquipmentBrand" label="厂商" />
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button

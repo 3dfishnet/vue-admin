@@ -14,17 +14,15 @@
 
     <el-table :data="list" border>
       <el-table-column prop="carID" label="车牌号" />
-      <el-table-column prop="personName" label="联系人" />
-      <el-table-column prop="personPhone" label="联系电话" />
-      <el-table-column prop="carInTime" label="开始时间" />
-      <el-table-column prop="carOutTime" label="结束时间" />
+      <el-table-column prop="person.personName" label="联系人" />
+      <el-table-column prop="person.personPhone" label="联系电话" />
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
             type="danger"
             icon="el-icon-delete"
             size="small"
-            @click="delete(scope.row)"
+            @click="deleteCar(scope.row)"
           >删除</el-button>
         </template>
       </el-table-column>

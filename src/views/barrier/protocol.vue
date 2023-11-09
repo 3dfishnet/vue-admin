@@ -25,6 +25,7 @@
 
 <script>
 import { getProtocols, updateProtocolStatus } from '@/api/barrier'
+import { Message } from 'element-ui'
 
 export default {
   data() {
@@ -45,12 +46,12 @@ export default {
       this.listLoading = true
       getProtocols(this.query).then(response => {
         this.list = response.data
-        // this.listLoading = false
+        this.listLoading = false
       })
-      this.listLoading = false
     },
     changeStatus(data) {
-      updateProtocolStatus(data).then(() => {
+      updateProtocolStatus(data).then((response) => {
+        Message(response.data)
         this.queryProtocol()
       })
     },

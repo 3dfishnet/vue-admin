@@ -1,32 +1,29 @@
 import request from '@/utils/request'
 
 export function getCommunityPersons(params) {
-  console.log('getCommunityPersons:')
-  console.log(params)
   return request({
     url: '/communityPerson',
     method: 'get',
-    params
+    params,
+    baseURL: 'http://localhost:8080'
   })
 }
 
 export function addCommunityPerson(data) {
-  console.log('addCommunityPerson:')
-  console.log(data)
   return request({
     url: '/communityPerson',
     method: 'post',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }
 
 export function deleteCommunityPerson(data) {
-  console.log('deleteCommunityPerson:')
-  console.log(data)
   return request({
     url: '/communityPerson',
     method: 'delete',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -34,7 +31,8 @@ export function getParkingLots(params) {
   return request({
     url: '/parkingLot',
     method: 'get',
-    params
+    params,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -42,7 +40,8 @@ export function addParkingLot(data) {
   return request({
     url: '/parkingLot',
     method: 'post',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -50,7 +49,8 @@ export function deleteParkingLot(data) {
   return request({
     url: '/parkingLot',
     method: 'delete',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -58,7 +58,8 @@ export function getParkingSpaces(params) {
   return request({
     url: '/parkingSpace',
     method: 'get',
-    params
+    params,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -66,7 +67,8 @@ export function addParkingSpace(data) {
   return request({
     url: '/parkingSpace',
     method: 'post',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -74,7 +76,8 @@ export function deleteParkingSpace(data) {
   return request({
     url: '/parkingSpace',
     method: 'delete',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -82,7 +85,8 @@ export function getCars(params) {
   return request({
     url: '/communityCar',
     method: 'get',
-    params
+    params,
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -90,6 +94,7 @@ export function deleteCar(data) {
   return request({
     url: '/communityCar',
     method: 'delete',
-    data
+    data,
+    baseURL: 'http://localhost:8080'
   })
 }

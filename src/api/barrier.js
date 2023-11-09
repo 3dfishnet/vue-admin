@@ -5,7 +5,7 @@ export function getDevices(params) {
     url: '/barrierEquipment',
     method: 'get',
     params,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -14,7 +14,7 @@ export function addDevice(data) {
     url: '/barrierEquipment',
     method: 'post',
     data,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -23,7 +23,7 @@ export function deleteDevice(data) {
     url: '/barrierEquipment',
     method: 'delete',
     data,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -32,7 +32,7 @@ export function carIn(data) {
     url: '/controlCenterIn',
     method: 'post',
     data,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -41,7 +41,7 @@ export function carOut(data) {
     url: '/controlCenterOut',
     method: 'post',
     data,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -50,7 +50,7 @@ export function getCarIn(params) {
     url: '/carIn',
     method: 'get',
     params,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -59,7 +59,7 @@ export function getCarOut(params) {
     url: '/carOut',
     method: 'get',
     params,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -68,7 +68,7 @@ export function getProtocols(params) {
     url: '/barrierProtocol',
     method: 'get',
     params,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
 
@@ -77,6 +77,6 @@ export function updateProtocolStatus(data) {
     url: '/barrierProtocol',
     method: 'put',
     data,
-    baseURL: 'http://47.98.186.230:8080'
+    baseURL: 'http://localhost:8080'
   })
 }
