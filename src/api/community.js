@@ -4,7 +4,7 @@ export function getCommunityPersons(params) {
   console.log('getCommunityPersons:')
   console.log(params)
   return request({
-    url: '/iot/community/persons',
+    url: '/communityPerson',
     method: 'get',
     params
   })
@@ -14,7 +14,7 @@ export function addCommunityPerson(data) {
   console.log('addCommunityPerson:')
   console.log(data)
   return request({
-    url: '/iot/community/persons',
+    url: '/communityPerson',
     method: 'post',
     data
   })
@@ -24,7 +24,7 @@ export function deleteCommunityPerson(data) {
   console.log('deleteCommunityPerson:')
   console.log(data)
   return request({
-    url: '/iot/community/persons',
+    url: '/communityPerson',
     method: 'delete',
     data
   })
@@ -32,7 +32,7 @@ export function deleteCommunityPerson(data) {
 
 export function getParkingLots(params) {
   return request({
-    url: '/iot/community/parkingLots',
+    url: '/parkingLot',
     method: 'get',
     params
   })
@@ -40,7 +40,7 @@ export function getParkingLots(params) {
 
 export function addParkingLot(data) {
   return request({
-    url: '/iot/community/parkingLots',
+    url: '/parkingLot',
     method: 'post',
     data
   })
@@ -48,7 +48,7 @@ export function addParkingLot(data) {
 
 export function deleteParkingLot(data) {
   return request({
-    url: '/iot/community/parkingLots',
+    url: '/parkingLot',
     method: 'delete',
     data
   })
@@ -56,7 +56,7 @@ export function deleteParkingLot(data) {
 
 export function getParkingSpaces(params) {
   return request({
-    url: '/iot/community/parkingSpaces',
+    url: '/parkingSpace',
     method: 'get',
     params
   })
@@ -64,7 +64,7 @@ export function getParkingSpaces(params) {
 
 export function addParkingSpace(data) {
   return request({
-    url: '/iot/community/parkingSpaces',
+    url: '/parkingSpace',
     method: 'post',
     data
   })
@@ -72,7 +72,7 @@ export function addParkingSpace(data) {
 
 export function deleteParkingSpace(data) {
   return request({
-    url: '/iot/community/parkingSpaces',
+    url: '/parkingSpace',
     method: 'delete',
     data
   })
@@ -80,7 +80,7 @@ export function deleteParkingSpace(data) {
 
 export function getCars(params) {
   return request({
-    url: '/iot/community/Cars',
+    url: '/communityCar',
     method: 'get',
     params
   })
@@ -88,7 +88,7 @@ export function getCars(params) {
 
 export function deleteCar(data) {
   return request({
-    url: '/iot/community/Cars',
+    url: '/communityCar',
     method: 'delete',
     data
   })

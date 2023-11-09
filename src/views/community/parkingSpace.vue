@@ -18,7 +18,7 @@
       @click="dialogFormVisible = true"
     >添加停车位</el-button>
 
-    <el-dialog title="dialogFormTitle" :visible.sync="dialogFormVisible">
+    <el-dialog title="停车位" :visible.sync="dialogFormVisible">
       <el-form
         :model="temp"
         label-position="left"
@@ -72,10 +72,10 @@ export default {
       list: null,
       query: { parkingSpaceID: '' },
       temp: {
-        parkingSpaceID: '123',
-        parkingSpaceCreateTime: '123',
-        parkingSpaceParkingLotID: '123',
-        parkingSpaceCarID: '123'
+        parkingSpaceID: '',
+        parkingSpaceCreateTime: '',
+        parkingSpaceParkingLotID: '',
+        parkingSpaceCarID: ''
       },
       dialogFormVisible: false
     }

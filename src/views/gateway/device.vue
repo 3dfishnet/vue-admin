@@ -1,12 +1,12 @@
 <template>
   <div>
-    <el-input v-model="query.barrierEquipmentID" placeholder="道闸编码" style="width: 200px; margin: 5px;" />
-    <el-input v-model="query.barrierEquipmentIP" placeholder="道闸IP" style="width: 200px; margin: 5px;" />
-    <el-input v-model="query.barrierEquipmentMacAddress" placeholder="道闸Mac" style="width: 200px; margin: 5px;" />
-    <el-button type="primary" icon="el-icon-search" style="margin: 5px;" @click="queryDevice()">查询道闸</el-button>
-    <el-button type="primary" icon="el-icon-search" style="margin: 5px;" @click="dialogFormVisible = true">添加道闸</el-button>
+    <el-input v-model="query.gatewayEquipmentID" placeholder="门禁编码" style="width: 200px; margin: 5px;" />
+    <el-input v-model="query.gatewayEquipmentIP" placeholder="门禁IP" style="width: 200px; margin: 5px;" />
+    <el-input v-model="query.gatewayEquipmentMacAddress" placeholder="门禁Mac" style="width: 200px; margin: 5px;" />
+    <el-button type="primary" icon="el-icon-search" style="margin: 5px;" @click="queryDevice()">查询门禁</el-button>
+    <el-button type="primary" icon="el-icon-search" style="margin: 5px;" @click="dialogFormVisible = true">添加门禁</el-button>
 
-    <el-dialog title="道闸" :visible.sync="dialogFormVisible">
+    <el-dialog title="门禁" :visible.sync="dialogFormVisible">
       <el-form
         :model="temp"
         label-position="left"
@@ -15,25 +15,25 @@
       >
 
         <el-form-item label="MAC">
-          <el-input v-model="temp.barrierEquipmentMacAddress" placeholder="请输入道闸MAC" />
+          <el-input v-model="temp.gatewayEquipmentMacAddress" placeholder="请输入门禁MAC" />
         </el-form-item>
         <el-form-item label="IP">
-          <el-input v-model="temp.barrierEquipmentIP" placeholder="请输入道闸IP" />
+          <el-input v-model="temp.gatewayEquipmentIP" placeholder="请输入门禁IP" />
         </el-form-item>
         <el-form-item label="IP版本">
-          <el-select v-model="temp.barrierEquipmentIPVersion" placeholder="请选择门禁IP版本">
+          <el-select v-model="temp.gatewayEquipmentIPVersion" placeholder="请选择门禁IP版本">
             <el-option label="4" value="4" />
             <el-option label="6" value="6" />
           </el-select>
         </el-form-item>
         <el-form-item label="名称">
-          <el-input v-model="temp.barrierEquipmentName" placeholder="请输入道闸名称" />
+          <el-input v-model="temp.gatewayEquipmentName" placeholder="请输入门禁名称" />
         </el-form-item>
         <el-form-item label="OEM">
-          <el-input v-model="temp.barrierEquipmentProtocol" placeholder="请输入道闸厂家" />
+          <el-input v-model="temp.gatewayEquipmentProtocol" placeholder="请输入门禁厂家" />
         </el-form-item>
         <el-form-item label="门禁方向">
-          <el-select v-model="temp.barrierEquipmentDirection" placeholder="请选择设备方向">
+          <el-select v-model="temp.gatewayEquipmentDirection" placeholder="请选择门禁方向">
             <el-option label="进场" value="进" />
             <el-option label="出场" value="出" />
           </el-select>
@@ -46,13 +46,12 @@
     </el-dialog>
 
     <el-table v-loading="listLoading" :data="list" element-loading-text="Loading" border fit highlight-current-row>
-      <el-table-column prop="barrierEquipmentName" label="名称" />
-      <el-table-column prop="barrierEquipmentID" label="道闸编码" />
-      <el-table-column prop="barrierEquipmentIP" label="道闸IP" />
-      <el-table-column prop="barrierEquipmentIPVersion" label="IP版本号" />
-      <el-table-column prop="barrierEquipmentDirection" label="方向" />
-      <el-table-column prop="barrierEquipmentMacAddress" label="MAC地址" />
-      <el-table-column prop="barrierEquipmentProtocol" label="厂商" />
+      <el-table-column prop="gatewayEquipmentName" label="名称" />
+      <el-table-column prop="gatewayEquipmentID" label="门禁编码" />
+      <el-table-column prop="gatewayEquipmentIP" label="门禁IP" />
+      <el-table-column prop="gatewayEquipmentIPVersion" label="IP版本号" />
+      <el-table-column prop="gatewayEquipmentMacAddress" label="MAC地址" />
+      <el-table-column prop="gatewayEquipmentProtocol" label="厂商" />
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
@@ -67,9 +66,10 @@
     </el-table>
   </div>
 </template>
-
+    <!-- gatewayEquipmentID, gatewayEquipmentName, gatewayEquipmentIP,
+        gatewayEquipmentIPVersion, gatewayEquipmentMacAddress, gatewayEquipmentBrand -->
 <script>
-import { getDevices, addDevice, deleteDevice } from '@/api/barrier'
+import { getDevices, addDevice, deleteDevice } from '@/api/gateway'
 import { Message } from 'element-ui'
 export default {
   data() {
@@ -78,18 +78,17 @@ export default {
       listLoading: false,
       dialogFormVisible: false,
       query: {
-        barrierEquipmentID: '',
-        barrierEquipmentIP: '',
-        barrierEquipmentMacAddress: ''
+        gatewayEquipmentID: '',
+        gatewayEquipmentIP: '',
+        gatewayEquipmentMacAddress: ''
       },
       temp: {
-        barrierEquipmentID: '0',
-        barrierEquipmentName: '',
-        barrierEquipmentDirection: '',
-        barrierEquipmentIP: '',
-        barrierEquipmentIPVersion: '',
-        barrierEquipmentMacAddress: '',
-        barrierEquipmentProtocol: ''
+        gatewayEquipmentID: '0',
+        gatewayEquipmentName: '',
+        gatewayEquipmentIP: '',
+        gatewayEquipmentIPVersion: '',
+        gatewayEquipmentMacAddress: '',
+        gatewayEquipmentBrand: ''
       }
     }
   },
@@ -132,3 +131,4 @@ export default {
   }
 }
 </script>
+
