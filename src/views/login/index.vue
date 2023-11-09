@@ -55,12 +55,7 @@
         style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
       >Login</el-button>
-      <el-button
-        :loading="loading"
-        type="primary"
-        style="width: 100%; margin-bottom: 30px"
-        @click.native.prevent="test"
-      >test</el-button>
+
       <div class="tips">
         <span style="margin-right: 20px">username: admin</span>
         <span> password: any</span>
@@ -71,7 +66,6 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-import { testGet } from '@/api/table'
 export default {
   name: 'Login',
   data() {
@@ -143,11 +137,6 @@ export default {
           console.log('error submit!!')
           return false
         }
-      })
-    },
-    test() {
-      testGet({ nickname: 'test', phone: 'tel123' }).then(response => {
-        console.log(response)
       })
     }
   }
