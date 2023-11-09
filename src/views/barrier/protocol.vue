@@ -45,13 +45,13 @@ export default {
     queryProtocol() {
       this.listLoading = true
       getProtocols(this.query).then(response => {
-        this.list = response.data
+        this.list = response
         this.listLoading = false
       })
     },
     changeStatus(data) {
       updateProtocolStatus(data).then((response) => {
-        Message(response.data)
+        Message(response)
         this.queryProtocol()
       })
     },

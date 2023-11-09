@@ -108,7 +108,7 @@ export default {
   methods: {
     queryBarrierID() {
       getDevices(this.query).then((response) => {
-        const barrierList = response.data
+        const barrierList = response
         // console.log(barrierList)
         for (const key in barrierList) {
           this.barrierIDList.push(barrierList[key]['barrierEquipmentID'])
@@ -118,12 +118,12 @@ export default {
     },
     carIn() {
       carIn(this.carInInfo).then((response) => {
-        Message(response.data)
+        Message(response)
       })
     },
     carOut() {
       carOut(this.carOutInfo).then((response) => {
-        Message(response.data)
+        Message(response)
       })
     }
   }

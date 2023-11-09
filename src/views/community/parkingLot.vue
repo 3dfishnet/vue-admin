@@ -55,8 +55,8 @@ export default {
   methods: {
     queryParkingLot() {
       getParkingLots(this.query).then((response) => {
-        this.list = response.data
-        console.log(response.data)
+        this.list = response
+        console.log(response)
       })
     },
     addParkingLot() {

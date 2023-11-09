@@ -100,7 +100,7 @@ export default {
     queryDevice() {
       this.listLoading = true
       getDevices(this.query).then(response => {
-        this.list = response.data
+        this.list = response
         this.listLoading = false
       })
     },
@@ -111,13 +111,13 @@ export default {
       }
       addDevice(this.temp).then((response) => {
         this.queryDevice()
-        Message(response.data)
+        Message(response)
         this.dialogFormVisible = false
       })
     },
     deleteDevice(data) {
       deleteDevice(data).then((response) => {
-        Message({ message: response.data })
+        Message({ message: response })
         this.queryDevice()
       })
     },

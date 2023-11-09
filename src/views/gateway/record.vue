@@ -42,7 +42,7 @@ export default {
   methods: {
     queryRecord() {
       getRecords(this.query).then((response) => {
-        this.list = response.data
+        this.list = response
       })
     }
   }

@@ -46,8 +46,8 @@ export default {
   methods: {
     queryCar() {
       getCars(this.query).then((response) => {
-        this.list = response.data
-        console.log(response.data)
+        this.list = response
+        console.log(response)
       })
     },
     deleteCar(data) {

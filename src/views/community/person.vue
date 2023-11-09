@@ -154,7 +154,7 @@ export default {
     queryCommunityPerson() {
       this.listLoading = true
       getCommunityPersons(this.query).then(response => {
-        this.list = response.data
+        this.list = response
         this.listLoading = false
       })
     },

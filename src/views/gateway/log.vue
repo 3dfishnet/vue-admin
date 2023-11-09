@@ -44,7 +44,7 @@ export default {
   methods: {
     queryLog() {
       getLogs(this.query).then((response) => {
-        this.list = response.data
+        this.list = response
       })
     }
   }

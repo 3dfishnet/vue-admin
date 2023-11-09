@@ -93,7 +93,7 @@ export default {
     queryDevice() {
       this.listLoading = true
       getDevices(this.query).then(response => {
-        this.list = response.data
+        this.list = response
         // this.listLoading = false
       })
       this.listLoading = false

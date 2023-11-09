@@ -56,8 +56,8 @@ export default {
   methods: {
     queryFace() {
       getFaces(this.query).then((response) => {
-        this.list = response.data
-        console.log(response.data)
+        this.list = response
+        console.log(response)
       })
     }
   }
