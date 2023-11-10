@@ -4,8 +4,7 @@ export function login(data) {
   return request({
     url: '/user/login',
     method: 'post',
-    data,
-    baseURL: ''
+    data
   })
 }
 
@@ -13,15 +12,13 @@ export function getInfo(token) {
   return request({
     url: '/user/info',
     method: 'get',
-    params: { token },
-    baseURL: ''
+    params: { token }
   })
 }
 
 export function logout() {
   return request({
     url: '/user/logout',
-    method: 'post',
-    baseURL: ''
+    method: 'post'
   })
 }
