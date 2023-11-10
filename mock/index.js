@@ -1,9 +1,7 @@
 const user = require('./user')
-const community = require('./community')
 
 const mocks = [
-  ...user,
-  ...community
+  ...user
 ]
 
 module.exports = {

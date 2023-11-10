@@ -17,8 +17,6 @@ import '@/permission' // permission control
 console.log('env:', process.env.NODE_ENV)
 Vue.use(ElementUI)
 
-Vue.config.productionTip = false
-
 new Vue({
   el: '#app',
   router,
