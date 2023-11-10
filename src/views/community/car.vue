@@ -16,6 +16,11 @@
       <el-table-column prop="carID" label="车牌号" />
       <el-table-column prop="person.personName" label="联系人" />
       <el-table-column prop="person.personPhone" label="联系电话" />
+      <el-table-column label="车辆类型">
+        <template slot-scope="scope">
+          <span>{{ scope.row.carType === '1' ? '小车' : '大车' }}</span>
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button

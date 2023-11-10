@@ -7,7 +7,7 @@
     />
     <el-select v-model="query.personType" placeholder="人员类型">
       <el-option
-        label=""
+        label="全部"
         value=""
       />
       <el-option
@@ -53,7 +53,6 @@
         <el-form-item label="人员类型">
           <el-select
             v-model="temp.personType"
-            class="filter-item"
             placeholder="请选择人员类型"
           >
             <el-option key="1" label="员工" value="1" />
@@ -74,7 +73,7 @@
       </div>
     </el-dialog>
 
-    <el-table v-loading="listLoading" :data="list" element-loading-text="Loading" border fit highlight-current-row>
+    <el-table :data="list" border>
       <el-table-column label="人脸" width="102">
         <template slot-scope="scope">
           <div>{{ scope.row.personFace }}</div>
@@ -142,7 +141,6 @@ export default {
         personCreateTime: ''
       },
       target: null,
-      listLoading: false,
       dialogFormVisible: false,
       dialogFormTitle: ''
     }
@@ -152,16 +150,12 @@ export default {
   },
   methods: {
     queryCommunityPerson() {
-      this.listLoading = true
       getCommunityPersons(this.query).then(response => {
         this.list = response
-        this.listLoading = false
       })
     },
     deleteCommunityPerson(data) {
-      this.listLoading = true
       deleteCommunityPerson(data).then(response => {
-        this.listLoading = false
         this.queryCommunityPerson()
       })
     },
@@ -177,9 +171,11 @@ export default {
       this.dialogFormVisible = true
     },
     saveCommunityPerson() {
-      this.listLoading = true
-      if (this.temp.personID === '') {
-        Message('ID 不能为空！')
+      if (this.temp.personID === '' || this.temp.personName === '' ||
+          this.temp.personPhone === '' || this.temp.personType === '' ||
+          this.temp.personFace === '') {
+        Message({ type: 'error', message: '表单内容均不能为空!' })
+        return
       } else if (!this.deepEqual(this.temp, this.target)) { // 比较表单前后有无变化
         if (this.dialogFormTitle === '修改人员') {
           deleteCommunityPerson(this.target)
@@ -188,7 +184,6 @@ export default {
           this.queryCommunityPerson()
         })
       }
-      this.listLoading = false
       this.dialogFormVisible = false
     },
     deepEqual(obj1, obj2) {

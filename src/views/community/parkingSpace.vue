@@ -93,6 +93,7 @@ export default {
     addParkingSpace() {
       addParkingSpace(this.temp).then(() => {
         this.queryParkingSpace()
+        this.dialogFormVisible = false
       })
     },
     deleteParkingSpace(data) {

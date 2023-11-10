@@ -39,6 +39,7 @@
 
 <script>
 import { getParkingLots, addParkingLot, deleteParkingLot } from '@/api/community'
+import { Message } from 'element-ui'
 export default {
   data() {
     return {
@@ -60,6 +61,10 @@ export default {
       })
     },
     addParkingLot() {
+      if (this.query.parkingLotID === '') {
+        Message({ type: 'error', message: 'ID不能为空' })
+        return
+      }
       addParkingLot(this.query).then(() => {
         this.query.parkingLotID = ''
         this.queryParkingLot()
